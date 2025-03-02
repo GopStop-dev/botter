@@ -11,6 +11,10 @@ from aiogram import F
 import asyncio
 from dotenv import load_dotenv
 
+if not os.path.exists("/usr/bin/ffmpeg"):
+    os.system("curl -L https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz | tar xJf -")
+    os.system("mv ffmpeg-*-static/ffmpeg /usr/bin/")
+
 # Загружаем переменные окружения
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
